@@ -26,7 +26,6 @@ npm install --save art-template
 ## babel
 
 ```
-npm install --save-dev babel-cli
 npm install --save-dev babel-core
 npm install --save-dev babel-register
 npm install --save-dev babel-preset-es2015
@@ -72,7 +71,7 @@ npm install --save-dev babel-plugin-transform-async-to-module-method
 ## gulp
 
 ```
-npm install --save-dev gulp gulp-babel gulp-watch gulp-sourcemaps gulp-uglify gulp-minify-css gulp-sass gulp-rename gulp-imagemin imagemin-pngquant gulp-livereload
+npm install --save-dev gulp gulp-babel gulp-changed gulp-sourcemaps gulp-uglify gulp-minify-css gulp-sass gulp-rename gulp-imagemin imagemin-pngquant gulp-livereload
 
 ```
 
@@ -89,14 +88,14 @@ package.json
 ## dev
 
 ```shell
-npm install --save-dev nodemon
+npm install -g nodemon
 ```
 
 package.json
 
 ```
 "scripts": {
-    "develop": "./node_modules/.bin/nodemon lib/app.js",
+    "develop": "nodemon lib/app.js",
 }
 ```
 
@@ -119,4 +118,4 @@ package.json
 * `Preferences > Languages & Frameworks > Node.js and NPm > enable v5.11.1`
 * `Preferences > Languages & Frameworks > JavaScript > JavaScript language version > ECMAScript 6`
 * `Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint > Enable`
-* `Preferences > Tools > File watchers > + > Babel`
+
