@@ -7,6 +7,6 @@
         ["transform-async-to-module-method", {
             "module": "bluebird",
             "method": "coroutine"
-        }]
+         }]
     ]
 }

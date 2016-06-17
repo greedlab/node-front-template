@@ -4,18 +4,23 @@
 
 [English](README.md) | 中文
 
-## 安装
+## clone
 
 ```
-git clone
+$ git clone https://github.com/greedlab/node-front-template.git
 ```
 
-```
-npm install -g pm2
-```
-
-## build
+## 开发环境
 
 ```
-$ npm run build
+$ npm install
+$ gulp build
+$ npm run develop
+```
+
+## 生产环境
+
+```
+$ npm install --production
+$ npm run release
 ```

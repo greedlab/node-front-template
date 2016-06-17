@@ -41,14 +41,6 @@ npm install --save-dev babel-eslint
 npm install --save-dev eslint-plugin-react
 ```
 
-package.json
-
-```
-"scripts": {
-    "lint": "./node_modules/.bin/eslint src/**/*.js",
-}
-```
-
 ## node.js 支持 async
 
 ```
@@ -71,18 +63,8 @@ npm install --save-dev babel-plugin-transform-async-to-module-method
 ## gulp
 
 ```
-npm install --save-dev gulp gulp-babel gulp-changed gulp-sourcemaps gulp-uglify gulp-minify-css gulp-sass gulp-rename gulp-imagemin imagemin-pngquant gulp-livereload
+npm install --save-dev gulp gulp-babel gulp-changed gulp-sourcemaps gulp-uglify gulp-minify-css gulp-sass gulp-rename gulp-imagemin imagemin-pngquant gulp-livereload run-sequence
 
-```
-
-## build
-
-package.json
-
-```
-"scripts": {
-    "build": "babel src -d lib -w -s"
-}
 ```
 
 ## dev

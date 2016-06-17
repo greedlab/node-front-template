@@ -1,0 +1,1 @@
+{"version":3,"sources":["config/index.js"],"names":[],"mappings":";;;;;;;;;kBAIe;AACX,WAAS,YADE;AAEX,QAAM;AAFK,C","file":"config/index.js","sourcesContent":["/**\n * Created by Bell on 16/6/16.\n */\n\nexport default {\n    baseUrl: 'github.com',\n    prot: '4000'\n};"],"sourceRoot":"/source/"}
