@@ -15,6 +15,7 @@ $ git clone https://github.com/greedlab/node-front-template.git
 ```
 $ npm install
 $ gulp build
+$ gulp watch
 $ npm run develop
 ```
 

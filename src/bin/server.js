@@ -20,7 +20,7 @@ app
 
 // static
 
-app.use(serve(path.join(__dirname,'../public')));
+app.use(serve(path.join(__dirname,'../assets')));
 
 // logger
 
@@ -28,7 +28,7 @@ app.use(logger());
 
 // favicon
 
-app.use(favicon(path.join(__dirname,'../public/favicon.ico')));
+app.use(favicon(path.join(__dirname,'../assets/favicon.ico')));
 
 // listen
 

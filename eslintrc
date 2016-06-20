@@ -17,8 +17,6 @@
 
     // Map from global var to bool specifying if it can be redefined
     "globals": {
-        "React": true,
-        "ReactDOM": true,
         "__DEV__": true,
         "__dirname": false,
         "__fbBatchedBridgeConfig": false,
