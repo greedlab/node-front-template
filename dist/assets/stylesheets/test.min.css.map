@@ -1,0 +1,1 @@
+{"version":3,"sources":["stylesheets/test.scss"],"names":[],"mappings":"AAEA,GAEE,MAAO","file":"stylesheets/test.min.css","sourcesContent":["$blue : #ffe87c;\n\nh1\n{\n  color: #ffe87c;\n}\n"],"sourceRoot":"/source/"}

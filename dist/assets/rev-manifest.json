@@ -1,0 +1,15 @@
+{
+  "images/GitHub-Mark-64px.png": "images/GitHub-Mark-64px-a278ea01db.png",
+  "images/Octocat.png": "images/Octocat-1d603fd45d.png",
+  "images/koa.png": "images/koa-1026081c46.png",
+  "javascripts/index.js": "javascripts/index-13c998a75d.js",
+  "javascripts/index.min.js": "javascripts/index-5f032265d7.min.js",
+  "javascripts/test.jsx": "javascripts/test-493d018d88.jsx",
+  "javascripts/test.min.jsx": "javascripts/test-7d5dff5618.min.jsx",
+  "stylesheets/index.css": "stylesheets/index-c5745b2673.css",
+  "stylesheets/index.min.css": "stylesheets/index-ceb87a1f29.min.css",
+  "stylesheets/style.css": "stylesheets/style-019069602b.css",
+  "stylesheets/style.min.css": "stylesheets/style-1c133476ab.min.css",
+  "stylesheets/test.css": "stylesheets/test-0eaf137685.css",
+  "stylesheets/test.min.css": "stylesheets/test-e9abfb89ae.min.css"
+}

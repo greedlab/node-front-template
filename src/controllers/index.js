@@ -1,6 +1,6 @@
 
-import template from 'art-template';
-import path from 'path';
+const template = require('art-template');
+const path = require('path');
 
 export async function index(ctx, next) {
     let data = {

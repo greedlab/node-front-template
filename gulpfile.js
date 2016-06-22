@@ -25,7 +25,7 @@ const htmlmin = require('gulp-htmlmin');
 const dist_dir = 'dist';
 const dist_assets_dir = dist_dir + '/assets';
 
-const src_sync_files = 'src/**/*.ico}';
+const src_sync_files = ['src/**/*.ico','src/**/*.html'];
 const dist_sync_dir = dist_dir;
 
 const src_assets_image_files = 'src/assets/**/*.{jpg,jpeg,png,gif}';
@@ -45,6 +45,13 @@ const dist_assets_css_dir = dist_assets_dir;
 
 const src_html_files = 'src/**/*.html';
 const dist_html_dir = dist_dir;
+
+// 静态资源文件
+const dist_assets_files = 'dist/assets/**/*.{js,jsx,css,jpg,jpeg,png,gif}';
+
+// 代码里引用了静态资源的文件
+const dist_assets_reference_files = 'dist/**/*.{js,jsx,css,html}';
+const dist_assets_reference_dir = dist_dir;
 
 gulp.task('clean', () => {
     return del(dist_dir);
@@ -73,20 +80,13 @@ gulp.task('build-js', () => {
 gulp.task('build-assets-js', () => {
     return gulp.src(src_assets_js_files)
         .pipe(plumber())
-        // .pipe(changed(dist_assets_js_dir))
+        .pipe(changed(dist_assets_js_dir))
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(rename({
             extname: '.js'
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_js_dir))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist_assets_js_dir))
-        .pipe(rev.manifest({
-            path: 'rev-js-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_js_dir));
 
 });
@@ -101,14 +101,7 @@ gulp.task('uglify-assets-js', () => {
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_js_dir))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist_assets_js_dir))
-        .pipe(rev.manifest({
-            path: 'rev-uglify-js-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_js_dir));
 });
 
@@ -121,14 +114,7 @@ gulp.task('build-assets-jsx', () => {
         .pipe(rename({
             extname: '.jsx'
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_jsx_dir))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist_assets_jsx_dir))
-        .pipe(rev.manifest({
-            path: 'rev-jsx-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_jsx_dir));
 });
 
@@ -142,14 +128,7 @@ gulp.task('uglify-assets-jsx', () => {
         .pipe(rename({
             extname: '.min.jsx'
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_jsx_dir))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist_assets_jsx_dir))
-        .pipe(rev.manifest({
-            path: 'rev-uglify-jsx-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_jsx_dir));
 });
 
@@ -162,14 +141,7 @@ gulp.task('build-assets-css', () => {
         .pipe(rename({
             extname: '.css'
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_css_dir))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist_assets_css_dir))
-        .pipe(rev.manifest({
-            path: 'rev-css-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_css_dir));
 });
 
@@ -183,14 +155,7 @@ gulp.task('uglify-assets-css', () => {
         .pipe(rename({
             extname: '.min.css'
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_css_dir))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist_assets_css_dir))
-        .pipe(rev.manifest({
-            path: 'rev-uglify-css-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_css_dir));
 });
 
@@ -202,28 +167,43 @@ gulp.task('min-assets-image', () => {
             progressive: true,
             use: [pngquant()]
         }))
-        .pipe(rev())
-        .pipe(gulp.dest(dist_assets_image_dir))
-        .pipe(rev.manifest({
-            path: 'rev-image-manifest.json',
-            merge: true
-        }))
         .pipe(gulp.dest(dist_assets_image_dir));
 });
 
-gulp.task('build-html', () => {
-    return gulp.src(['dist/assets/rev-*.json',src_html_files])
+/**
+ * 静态资源加指纹
+ */
+gulp.task('fingerprint-assets', () => {
+    return gulp.src(dist_assets_files)
+        .pipe(plumber())
+        .pipe(changed(dist_assets_dir))
+        .pipe(rev())
+        .pipe(gulp.dest(dist_assets_dir))
+        .pipe(rev.manifest({
+            merge: true
+        }))
+        .pipe(gulp.dest(dist_assets_dir));
+});
+
+/**
+ * 修改静态资源引用
+ */
+gulp.task('fingerprint-code', () => {
+    return gulp.src(['dist/assets/rev-*.json',dist_assets_reference_files])
         .pipe(plumber())
         .pipe(revCollector({
             replaceReved: true
         }))
-        .pipe(gulp.dest(dist_html_dir));
+        .pipe(gulp.dest(dist_dir));
 });
 
 gulp.task('build', () => {
     return runSequence(['sync','min-assets-image','build-js', 'build-assets-js','uglify-assets-js'
-        ,'build-assets-css', 'uglify-assets-css', 'build-assets-jsx', 'uglify-assets-jsx']
-        ,'build-html');
+        ,'build-assets-css', 'uglify-assets-css', 'build-assets-jsx', 'uglify-assets-jsx']);
+});
+
+gulp.task('release', () => {
+    return runSequence('build','fingerprint-assets','fingerprint-code');
 });
 
 gulp.task('rebuild', () => {
@@ -233,9 +213,8 @@ gulp.task('rebuild', () => {
 gulp.task('watch', () => {
     gulp.watch(src_sync_files, ['sync']);
     gulp.watch(src_js_files, ['build-js']);
-    gulp.watch(src_assets_image_files, runSequence('min-assets-image','build-html'));
-    gulp.watch(src_assets_js_files, runSequence(['build-assets-js','uglify-assets-js'],'build-html'));
-    gulp.watch(src_assets_jsx_files, runSequence(['build-assets-jsx','uglify-assets-jsx'],'build-html'));
-    gulp.watch(src_assets_css_files, runSequence(['build-assets-css','uglify-assets-css'],'build-html'));
-    gulp.watch(src_html_files, ['build-html']);
+    gulp.watch(src_assets_image_files, runSequence('min-assets-image'));
+    gulp.watch(src_assets_js_files, runSequence(['build-assets-js','uglify-assets-js']));
+    gulp.watch(src_assets_jsx_files, runSequence(['build-assets-jsx','uglify-assets-jsx']));
+    gulp.watch(src_assets_css_files, runSequence(['build-assets-css','uglify-assets-css']));
 });

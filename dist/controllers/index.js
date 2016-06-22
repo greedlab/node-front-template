@@ -19,7 +19,7 @@ var index = exports.index = function () {
                             content: 'Test',
                             url: 'test'
                         };
-                        html = (0, _artTemplate2.default)(_path2.default.join(__dirname, '../views/index'), data);
+                        html = template(path.join(__dirname, '../views/index'), data);
 
                         ctx.body = html;
 
@@ -35,13 +35,6 @@ var index = exports.index = function () {
     };
 }();
 
-var _artTemplate = require('art-template');
-
-var _artTemplate2 = _interopRequireDefault(_artTemplate);
-
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var template = require('art-template');
+var path = require('path');
 //# sourceMappingURL=index.js.map

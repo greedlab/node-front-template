@@ -1,0 +1,1 @@
+{"version":3,"sources":["javascripts/index.js"],"names":[],"mappings":";;;;;;AAIA,SAAS,MAAT,GAAkB;AACd,SAAO,QAAP,CAAgB,IAAhB,GAAqB,OAArB;AACH","file":"javascripts/index.js","sourcesContent":["/**\n * Created by Bell on 16/6/16.\n */\n\nfunction goTest() {\n    window.location.href=\"/test\";\n}"],"sourceRoot":"/source/"}

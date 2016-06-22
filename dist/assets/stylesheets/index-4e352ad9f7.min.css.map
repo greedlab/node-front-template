@@ -1,1 +1,0 @@
-{"version":3,"sources":["stylesheets/index.scss"],"names":[],"mappings":"AAEA,YACE,MAHK","file":"stylesheets/index-4e352ad9f7.min.css","sourcesContent":["$red : #C21F39;\n\n#buttonTest {\n  color: $red;\n}"],"sourceRoot":"/source/"}

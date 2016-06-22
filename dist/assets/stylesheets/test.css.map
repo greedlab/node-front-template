@@ -1,0 +1,1 @@
+{"version":3,"file":"stylesheets/test.css","sources":["stylesheets/test.scss"],"sourcesContent":["$blue : #ffe87c;\n\nh1\n{\n  color: #ffe87c;\n}\n"],"mappings":"AAEA,AAAA,EAAE,CACF;EACE,KAAK,EAAE,OAAQ,GAChB","names":[],"sourceRoot":"/source/"}

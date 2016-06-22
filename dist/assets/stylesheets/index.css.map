@@ -1,0 +1,1 @@
+{"version":3,"file":"stylesheets/index.css","sources":["stylesheets/index.scss"],"sourcesContent":["$red : #C21F39;\n\n#buttonTest {\n  color: $red;\n}"],"mappings":"AAEA,AAAA,WAAW,CAAC;EACV,KAAK,EAHA,OAAO,GAIb","names":[],"sourceRoot":"/source/"}

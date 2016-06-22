@@ -2,19 +2,20 @@
  * Created by Bell on 16/6/16.
  */
 
-import Router from 'koa-router';
+const Router = require('koa-router');
+
 import * as controller from '../controllers/test';
 
 let base_url = '/test';
-let router = new Router({ prefix: base_url });
+let router = new Router({prefix: base_url});
 
 router
-    .get('/', function (ctx, next) {
-        controller.index(ctx, next);
+    .get('/', async(ctx, next) => {
+        await controller.test(ctx, next);
         return next();
     })
-    .post('/', function (ctx, next) {
-        controller.index();
+    .post('/', async(ctx, next) => {
+        await controller.index();
         return next();
     });
 
