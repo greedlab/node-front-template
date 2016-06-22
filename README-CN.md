@@ -22,6 +22,7 @@ $ npm run develop
 ## 生产环境
 
 ```
-$ npm install --production
+$ npm install
+$ gulp release
 $ npm run release
 ```

@@ -3,12 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.test = exports.index = undefined;
+exports.index = undefined;
 
 var _bluebird = require('bluebird');
 
 var index = exports.index = function () {
-    var ref = (0, _bluebird.coroutine)(regeneratorRuntime.mark(function _callee(ctx, next) {
+    var ref = (0, _bluebird.coroutine)(regeneratorRuntime.mark(function _callee(ctx) {
         var url, option, response;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -28,57 +28,24 @@ var index = exports.index = function () {
                     case 5:
                         response = _context.sent;
 
-                        ctx.body = template(path.join(__dirname, '../views/test'), response);
-                        return _context.abrupt('return', next());
+                        ctx.body = template(path.join(__dirname, '../views/test'), JSON.parse(response));
+                        _context.next = 12;
+                        break;
 
-                    case 10:
-                        _context.prev = 10;
+                    case 9:
+                        _context.prev = 9;
                         _context.t0 = _context['catch'](0);
 
                         console.log(_context.t0);
 
-                    case 13:
+                    case 12:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, this, [[0, 10]]);
+        }, _callee, this, [[0, 9]]);
     }));
-    return function index(_x, _x2) {
-        return ref.apply(this, arguments);
-    };
-}();
-
-var test = exports.test = function () {
-    var ref = (0, _bluebird.coroutine)(regeneratorRuntime.mark(function _callee2(ctx, next) {
-        var url, option, response;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-            while (1) {
-                switch (_context2.prev = _context2.next) {
-                    case 0:
-                        url = _github2.default.domain + '/repos/greedlab/node-front-template';
-                        option = {
-                            headers: {
-                                'User-Agent': _github2.default.useragent,
-                                'Accept': _github2.default.accept
-                            }
-                        };
-                        _context2.next = 4;
-                        return request_method(url, option, ctx);
-
-                    case 4:
-                        response = _context2.sent;
-
-                        ctx.body = response;
-
-                    case 6:
-                    case 'end':
-                        return _context2.stop();
-                }
-            }
-        }, _callee2, this);
-    }));
-    return function test(_x3, _x4) {
+    return function index(_x) {
         return ref.apply(this, arguments);
     };
 }();

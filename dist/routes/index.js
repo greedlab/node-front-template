@@ -28,7 +28,7 @@ router.get('/', function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return controller.index(ctx, next);
+                        return controller.index(ctx);
 
                     case 2:
                         return _context.abrupt('return', next());
@@ -50,7 +50,7 @@ router.get('/', function () {
                 switch (_context2.prev = _context2.next) {
                     case 0:
                         _context2.next = 2;
-                        return controller.index();
+                        return controller.index(ctx);
 
                     case 2:
                         return _context2.abrupt('return', next());

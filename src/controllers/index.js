@@ -2,7 +2,7 @@
 const template = require('art-template');
 const path = require('path');
 
-export async function index(ctx, next) {
+export async function index(ctx) {
     let data = {
         title: 'Index',
         content: 'Test',

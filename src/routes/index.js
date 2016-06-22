@@ -11,11 +11,11 @@ let router = new Router({ prefix: base_url });
 
 router
     .get('/', async(ctx, next) => {
-        await controller.index(ctx, next);
+        await controller.index(ctx);
         return next();
     })
     .post('/', async(ctx, next) => {
-        await controller.index();
+        await controller.index(ctx);
         return next();
     });
 

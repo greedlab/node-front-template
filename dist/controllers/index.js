@@ -8,7 +8,7 @@ exports.index = undefined;
 var _bluebird = require('bluebird');
 
 var index = exports.index = function () {
-    var ref = (0, _bluebird.coroutine)(regeneratorRuntime.mark(function _callee(ctx, next) {
+    var ref = (0, _bluebird.coroutine)(regeneratorRuntime.mark(function _callee(ctx) {
         var data, html;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -30,7 +30,7 @@ var index = exports.index = function () {
             }
         }, _callee, this);
     }));
-    return function index(_x, _x2) {
+    return function index(_x) {
         return ref.apply(this, arguments);
     };
 }();
