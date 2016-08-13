@@ -1,1 +1,0 @@
-{"version":3,"sources":["app.js"],"names":[],"mappings":";;;AACA,QAAQ,gBAAR;AACA,QAAQ,iBAAR","file":"app.js","sourcesContent":["// require(\"babel-register\")();\nrequire('babel-polyfill');\nrequire('./bin/server.js');\n"],"sourceRoot":"/source/"}
