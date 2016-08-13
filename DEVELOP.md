@@ -15,6 +15,8 @@ npm install --save koa-bodyparser@next
 npm install --save koa-favicon@next
 npm install --save koa-logger@next
 npm install --save koa-static@next
+npm install --save request
+npm install --save bluebird
 ```
 
 ## art-template
@@ -23,48 +25,45 @@ npm install --save koa-static@next
 npm install --save art-template
 ```
 
-## babel
-
-```
-npm install --save-dev babel-core
-npm install --save-dev babel-register
-npm install --save-dev babel-preset-es2015
-npm install --save-dev babel-preset-stage-0
-npm install --save-dev babel-polyfill
-```
-
 ## eslint
 
 ```
 npm install --save-dev eslint
-npm install --save-dev babel-eslint
 npm install --save-dev eslint-plugin-react
 ```
 
-## node.js 支持 async
+## babel
 
 ```
+npm install --save babel-polyfill
+npm install --save-dev babel-core
+npm install --save-dev babel-eslint
 npm install --save-dev babel-plugin-transform-async-to-module-method
-```
-
-.babelrc
-
-```
-{
-"plugins": [
-        ["transform-async-to-module-method", {
-            "module": "bluebird",
-            "method": "coroutine"
-        }]
-    ]
-}    
+npm install --save-dev babel-preset-es2015
+npm install --save-dev babel-preset-stage-0
 ```
 
 ## gulp
 
 ```
-npm install --save-dev gulp gulp-babel gulp-changed gulp-sourcemaps gulp-uglify gulp-minify-css gulp-sass gulp-rename gulp-imagemin imagemin-pngquant gulp-livereload run-sequence
-
+npm install -g gulp
+npm install --save-dev gulp-babel 
+npm install --save-dev gulp-changed 
+npm install --save-dev gulp-clean-css
+npm install --save-dev gulp-htmlmin
+npm install --save-dev gulp-imagemin
+npm install --save-dev gulp-livereload
+npm install --save-dev gulp-plumber
+npm install --save-dev gulp-react
+npm install --save-dev gulp-rename
+npm install --save-dev gulp-rev
+npm install --save-dev gulp-rev-collector
+npm install --save-dev gulp-sass
+npm install --save-dev gulp-sourcemaps
+npm install --save-dev gulp-uglify
+npm install --save-dev gulp-watch
+npm install --save-dev imagemin-pngquant 
+npm install --save-dev run-sequence
 ```
 
 ## dev
@@ -73,31 +72,14 @@ npm install --save-dev gulp gulp-babel gulp-changed gulp-sourcemaps gulp-uglify 
 npm install -g nodemon
 ```
 
-package.json
-
-```
-"scripts": {
-    "develop": "nodemon lib/app.js",
-}
-```
-
 ## release
 
 ```
 npm install -g pm2
 ```
 
-package.json
-
-```
-"scripts": {
-    "release": "pm2 lib/app.js",
-}
-```
-
 ## WebStorm
 
-* `Preferences > Languages & Frameworks > Node.js and NPm > enable v5.11.1`
-* `Preferences > Languages & Frameworks > JavaScript > JavaScript language version > ECMAScript 6`
+* `Preferences > Languages & Frameworks > Node.js and NPm > Node interperter:v5.11.1 | enable Node.js Core library`
+* `Preferences > Languages & Frameworks > JavaScript > JavaScript language version > JSX Harmony`
 * `Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint > Enable`
-

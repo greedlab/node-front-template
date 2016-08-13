@@ -10,10 +10,18 @@
 $ git clone https://github.com/greedlab/node-front-template.git
 ```
 
-## 开发环境
+## 安装依赖
 
 ```
 $ npm install
+$ npm install -g gulp
+$ npm install -g pm2
+$ npm install -g nodemon
+```
+
+## 开发环境
+
+```
 $ gulp build
 $ gulp watch
 $ npm run develop
@@ -22,7 +30,6 @@ $ npm run develop
 ## 生产环境
 
 ```
-$ npm install
 $ gulp release
 $ npm run release
 ```
