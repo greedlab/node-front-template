@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <title>Book List</title>
+</head>
+<body>
+<div class="content">
+    {{each books as value index}}
+    <li>{{index}} - {{value.name}}</li>
+    {{/each}}
+</div>
+
+</body>
+</html>

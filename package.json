@@ -4,8 +4,8 @@
   "description": "template for used for front end based on node.js",
   "main": "lib/app.js",
   "scripts": {
-    "develop": "PORT=4001 DEBUG=node-front-template* nodemon -w dist -e js,html,css,jsx dist/app.js",
-    "release": "pm2 start dist/app.js  -i 0 --name node-front-template --watch "
+    "develop": "PORT=4001 DEBUG=* nodemon -w dist -e js,html,css,jsx dist/app.js",
+    "release": "PORT=4001 pm2 start dist/app.js  -i 0 --name node-front-template --watch "
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,10 @@
   },
   "dependencies": {
     "art-template": "^3.0.3",
+    "async-busboy": "^0.1.1",
     "babel-polyfill": "^6.9.1",
     "bluebird": "^3.4.0",
+    "debug": "^2.2.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.1.0",
     "koa-favicon": "^2.0.0",
