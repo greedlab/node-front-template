@@ -11,22 +11,28 @@
     <h1>{{title}}</h1>
 
     {{if error}}
-    <p class="error-message">error</p>
+    <p class="error-message">{{error}}</p>
     {{/if}}
 
     <form action="/register" method="post">
-        <label for="username">Username</label>
-        <input autocapitalize="off" autocorrect="off" autofocus="autofocus" id="username" name="login" tabindex="1" type="text">
-        <label for="password">Password</label>
-        <input id="password" name="password" tabindex="2" type="password">
-        <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" name="Confirm Password" tabindex="3" type="password">
-        <input data-disable-with="Signing in…" name="commit" tabindex="4" value="Sign in" type="submit">
+        <div>
+            <label for="username">Username</label>
+            <input autocapitalize="off" autocorrect="off" autofocus="autofocus" id="username" name="username" tabindex="1"
+                   type="text">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" tabindex="2" type="password">
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" tabindex="3" type="password">
+        </div>
+        <div>
+            <input data-disable-with="Signing up…" name="commit" tabindex="4" value="Sign up" type="submit">
+        </div>
     </form>
-    <p>
-        <a href="/register">Create an account</a>.
-    </p>
 </div>
-<script src = "/javascripts/user.js"></script>
+<script src="/javascripts/user.js"></script>
 </body>
 </html>

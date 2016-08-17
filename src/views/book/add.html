@@ -14,6 +14,19 @@
     <p class="error-message">error</p>
     {{/if}}
 
+    <form action="/book/add" method="post">
+        <div>
+            <label for="name">name</label>
+            <input autofocus="autofocus" id="name" name="name" tabindex="1" type="text">
+        </div>
+        <div>
+            <label for="price">price</label>
+            <input id="price" name="price" tabindex="2" type="text">
+        </div>
+        <div>
+            <input data-disable-with="Adding in…" name="commit" tabindex="3" value="Add" type="submit">
+        </div>
+    </form>
 </div>
 </body>
 </html>

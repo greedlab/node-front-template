@@ -21,7 +21,7 @@ app.use(logger());
 
 // bodyParser
 
-// app.use(bodyParser());
+app.use(bodyParser());
 
 // router
 

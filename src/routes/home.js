@@ -14,6 +14,7 @@ router
     .get('/', book.list)
     .get('/login', user.login)
     .post('/login', user.loginRequest)
+    .post('/logout', user.logout)
     .get('/register', user.register)
     .post('/register', user.registerRequest);
 

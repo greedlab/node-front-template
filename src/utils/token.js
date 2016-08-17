@@ -2,21 +2,33 @@
  * Created by Bell on 16/8/16.
  */
 
-export async function saveToken(ctx, token) {
+export function saveToken(ctx, token) {
+    const maxAge = 7 * 24 * 60 * 60 * 1000;
     ctx.cookies.set('token',token, {
         signed: true,
         httpOnly: true,
-        maxAge: 600
+        maxAge: maxAge
     });
 }
 
-export async function getToken(ctx) {
-    ctx.cookies.get('token', {
+export function getToken(ctx) {
+    return ctx.cookies.get('token', {
         signed: true
     });
 }
 
-export async function ensureToken(ctx, next) {
+export function bearerToken(token) {
+    return 'Bearer ' + token;
+}
+
+export function clearToken(ctx) {
+    ctx.cookies.set('token',null, {
+        signed: true,
+        httpOnly: true
+    });
+}
+
+export function ensureToken(ctx, next) {
     const token = getToken(ctx);
     if (!token) {
         ctx.redirect('/login');

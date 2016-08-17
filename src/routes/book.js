@@ -14,7 +14,7 @@ router
     .get('/list', controller.list)
     .get('/detail', controller.detail)
     .get('/add', ensureToken, controller.add)
-    .post('/add', controller.addRequest);
+    .post('/add', ensureToken, controller.addRequest);
 
 export default {
     baseUrl: base_url,
