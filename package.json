@@ -5,7 +5,7 @@
   "main": "lib/app.js",
   "scripts": {
     "develop": "PORT=4001 DEBUG=node-front-template* nodemon -w dist -e js,html,css,jsx dist/app.js",
-    "release": "PORT=4001 NODE_ENV=production pm2 start dist/app.js  -i 0 --name node-front-template --watch "
+    "release": "PORT=4001 NODE_ENV=release pm2 start dist/app.js  -i 0 --name node-front-template --watch "
   },
   "repository": {
     "type": "git",
