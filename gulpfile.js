@@ -198,14 +198,14 @@ gulp.task('watch', () => {
     gulp.watch(src_sync_files, ['sync']);
     gulp.watch(src_js_files, ['build-js']);
     gulp.watch(src_assets_image_files, runSequence('min-assets-image'));
-    gulp.watch(src_assets_js_files, runSequence(['build-assets-js','uglify-assets-js']));
-    gulp.watch(src_assets_jsx_files, runSequence(['build-assets-jsx','uglify-assets-jsx']));
-    gulp.watch(src_assets_css_files, runSequence(['build-assets-css','uglify-assets-css']));
+    gulp.watch(src_assets_js_files, runSequence('build-assets-js','uglify-assets-js'));
+    gulp.watch(src_assets_jsx_files, runSequence('build-assets-jsx','uglify-assets-jsx'));
+    gulp.watch(src_assets_css_files, runSequence('build-assets-css','uglify-assets-css'));
 });
 
 gulp.task('build', () => {
-    return runSequence(['sync','min-assets-image','build-js', 'build-assets-js','uglify-assets-js'
-        ,'build-assets-css', 'uglify-assets-css', 'build-assets-jsx', 'uglify-assets-jsx']);
+    return runSequence(['sync','min-assets-image','build-js', 'build-assets-js','build-assets-css', 'build-assets-jsx'],['uglify-assets-js'
+        ,'uglify-assets-css', 'uglify-assets-jsx']);
 });
 
 gulp.task('rebuild', () => {
