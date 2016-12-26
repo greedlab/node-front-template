@@ -7,7 +7,7 @@
 ## clone
 
 ```
-$ git clone https://github.com/greedlab/node-front-template.git
+$ git clone --bare https://github.com/greedlab/node-front-template.git your-project-name
 ```
 
 ## 安装依赖
