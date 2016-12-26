@@ -7,7 +7,7 @@
 ## clone
 
 ```
-$ git clone --bare https://github.com/greedlab/node-front-template.git your-project-name
+$ git clone https://github.com/greedlab/node-front-template.git your-project-name
 ```
 
 ## 开发环境
